@@ -1,20 +1,20 @@
-import multer from "multer";
+// import multer from "multer";
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, './public/temp')
-    },
-    filename: function (req, file, cb) {
+// const storage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//       cb(null, './public/temp')
+//     },
+//     filename: function (req, file, cb) {
       
-      cb(null, file.originalname)
-    }
-  })
+//       cb(null, file.originalname)
+//     }
+//   })
   
-export const upload = multer(
-    { 
-        storage, 
-    }
-)
+// export const upload = multer(
+//     { 
+//         storage, 
+//     }
+// )
 //MULTER WORKFLOW
 // const express = require('express');
 // const multer = require('multer');
@@ -43,3 +43,17 @@ export const upload = multer(
 // app.listen(3000, () => {
 //   console.log('Server is running on port 3000');
 // });
+//WRITTEN BY MYSELF
+// import multer from "multer"
+// const storage = multer.diskStorage({
+//     destination: function ( req, file , cb) {
+//         cb(null, './public/temp')//null indicated no error
+//     },
+//     filename: function( req , file , cb){
+//         cb(null,file.originalname)
+//     }
+// })
+
+// export const upload = multer({
+//     storage,
+// })

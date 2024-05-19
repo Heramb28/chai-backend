@@ -13,7 +13,6 @@ const registerUser = asyncHandler ( async (req,res) => {
     //  remove password and refresh token field from response
     //  check for user creation
     //  return response
-
     const {fullName, email, username, password} = req.body
     console.log("email:", email);
     if (
@@ -23,6 +22,7 @@ const registerUser = asyncHandler ( async (req,res) => {
     ) {
         throw new ApiError(400,"All field are required")
     }
+    
 
     const existedUser = User.findOne({
         $or: [{ username } , { email }]

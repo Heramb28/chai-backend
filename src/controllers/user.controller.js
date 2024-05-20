@@ -22,9 +22,13 @@ const registerUser = asyncHandler ( async (req,res) => {
     ) {
         throw new ApiError(400,"All field are required")
     }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!emailRegex.test(email)){
+        throw new ApiError(400,"Invalid email type")
+    }
     
-
-    const existedUser = User.findOne({
+    //checking if user existed or not 
+    const existedUser = await User.findOne({
         $or: [{ username } , { email }]
     })
 
@@ -33,8 +37,8 @@ const registerUser = asyncHandler ( async (req,res) => {
 
     }
 
-    const avatarLocalPath = req.files?.avatar[0]?.path
-    const coverImageLocalPath = req.file?.coverImage[0]?.path
+    const avatarLocalPath = req.files?.avatar[0]?.path//avatar[0] means uski pehli property extract krrhe hai
+    const coverImageLocalPath = req.files?.coverImage[0]?.path
     
     if(!avatarLocalPath){
         throw new ApiError(400, " avatar file is required")

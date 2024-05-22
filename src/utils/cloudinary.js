@@ -15,6 +15,7 @@ const uploadOnCloudinary = async (localFilePath) => {
         })
         //file has been uploaded successfully
         console.log("file uploaded on cloudinary", response.url);
+        //fs.unlink(localFilePath)
         return response//response.url bhi krwa skte the return
     } catch (error) {
 

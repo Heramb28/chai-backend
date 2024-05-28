@@ -154,11 +154,11 @@ const logoutUser = asyncHandler(async (req,res) => {
         req.user._id,
         {
             $set:{
-                refreshToken:undefined
+                refreshToken:undefined//updating it's value
             }
         },
         {
-            new:true
+            new:true//return me response milega new wali value milegi
         }
     )
 

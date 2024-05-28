@@ -22,7 +22,8 @@ router.route("/login").post(loginUser)
 
 //secured routes
 
-router.route("/logout").post(verifyJWT , logoutUser)
+router.route("/logout").post(verifyJWT , logoutUser)//verifyjwt middleware hai uske end me next likha hai to uske baad logout user run hoga
+
 
 
 export default router
